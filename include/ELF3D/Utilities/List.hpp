@@ -1,6 +1,5 @@
 /*
 This file is part of ELF3D
-     (Elegant, Lightweight and Fast) 
 
 Copyright (c) 2011 Ritztro
 
