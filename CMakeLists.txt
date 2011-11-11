@@ -3,7 +3,7 @@
 #     (Elegant, Lightweight and Fast)
 # For the latest info, see https://github.com/Ritztro/ELF3D
 #*******************************************************************
-CMAKE_MINIMUM_REQUIRED (VERSION 2.8.4)
+CMAKE_MINIMUM_REQUIRED (VERSION 2.8)
 PROJECT(ELF3D)
 SET (ELF3D_VERSION_MAJOR 1)
 SET (ELF3D_VERSION_MINOR 0)
