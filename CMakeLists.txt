@@ -22,7 +22,7 @@ SET(INC_ROOT ${CMAKE_SOURCE_DIR}/include/ELF3D)
 #OPTION(BUILD_SHARED_LIBS "TRUE if ELF3D should be build as shared lib and false if static lib." OFF)
 #OPTION(BUILD_DOC "TRUE if the ELF3D API documentation should be build." OFF)
 
-CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/include/ELF3D/Utilities/BuildSettings.hpp.cmake ${CMAKE_SOURCE_DIR}/include/ELF3D/Utilities/BuildSettings.hpp)
+CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/cmake/BuildSettings.hpp.cmake ${CMAKE_SOURCE_DIR}/include/ELF3D/Utilities/BuildSettings.hpp)
 
 # Build doc if user want
 IF(BUILD_DOC)
