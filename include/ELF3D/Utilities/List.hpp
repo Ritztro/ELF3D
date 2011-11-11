@@ -25,6 +25,9 @@ THE SOFTWARE.
 #ifndef _LIST_H_
 #define _LIST_H_
 
+namespace elf
+{
+
 /**
 * The List class template is a container used to store doubly linked list of objects. 
 * The class type of objects that are to be stored in the List must be a subclass of ListElement using the same template parameter.
@@ -34,5 +37,7 @@ template <class type>
 class List
 {
 };
+
+}
 
 #endif

@@ -1,6 +1,5 @@
 #*******************************************************************
 # This file is part of the CMake build system for ELF3D
-#     (Elegant, Lightweight and Fast)
 # For the latest info, see https://github.com/Ritztro/ELF3D
 #*******************************************************************
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/src)
