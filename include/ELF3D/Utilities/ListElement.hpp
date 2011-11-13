@@ -25,14 +25,44 @@ THE SOFTWARE.
 #ifndef _LIST_ELEMENT_H_
 #define _LIST_ELEMENT_H_
 
-/**
-* The ListElement class template is the object in List. 
-* It should be declared as base class for the objects that you want to store in the List.
-* @see List
-*/
-template <class type>
-class ListElement
-{
-};
+class List;
 
+namespace elf
+{
+    /**
+    * The ListElement class template is the object in a List. 
+    * It should be declared as a base class for the objects that you want to store in a List.
+    * @see List
+    */
+    template <class type>
+    class ListElement
+    {
+    public:
+        ListElement();
+        ~ListElement();
+
+        /**
+        * Returns parent element of this element from a list.
+        * @return A pointer to a ListElement object.
+        */
+        ListElement *Parent();
+
+        /**
+        * Returns next element of this element from a list.
+        * @return A pointer to a ListElement object.
+        */
+        ListElement *Next();
+
+        /**
+        * Removes an element from any list it belongs to.
+        */
+        void Detach();
+
+        /**
+        * Returns the list which a element belongs to.
+        * @return A pointer to a List object.
+        */
+        List *GetList();
+    };
+}
 #endif
