@@ -29,59 +29,59 @@ THE SOFTWARE.
 
 namespace elf 
 {
+/**
+* The List class template is a container used to store doubly linked list of elements. 
+* The class type of the element that are to be stored in the List, must be a subclass of ListElement using the same template parameter.
+* @see ListElement
+*/
+template <class type>
+class List
+{
+public:
+    List();
+    ~List();
+
     /**
-    * The List class template is a container used to store doubly linked list of elements. 
-    * The class type of the element that are to be stored in the List, must be a subclass of ListElement using the same template parameter.
-    * @see ListElement
+    * Inserts a element after another element.
+    * @param element A pointer to the element to insert.
+    * @param elementAfter A pointer to the element to insert after.
     */
-    template <class type>
-    class List
-    {
-    public:
-        List();
-        ~List();
-
-        /**
-        * Inserts a element after another element.
-        * @param element A pointer to the element to insert.
-        * @param elementAfter A pointer to the element to insert after.
-        */
-        void InsertAfter(ListElement<type> *element, ListElement<type> *elementAfter);
+    void InsertAfter(ListElement<type> *element, ListElement<type> *elementAfter);
         
-        /**
-        * Inserts a element before antother element.
-        * @param element A pointer to the element to insert.
-        * @param elementAfter A pointer to the element to insert before.
-        */
-        void InsertBefore(ListElement<type> *element, ListElement<type> *elementBefore);
+    /**
+    * Inserts a element before antother element.
+    * @param element A pointer to the element to insert.
+    * @param elementAfter A pointer to the element to insert before.
+    */
+    void InsertBefore(ListElement<type> *element, ListElement<type> *elementBefore);
 
-        /**
-        * Adds a element to the end of a list.
-        * @param element A pointer to the element to add.
-        */
-        void Append(ListElement<type> *element);   
+    /**
+    * Adds a element to the end of a list.
+    * @param element A pointer to the element to add.
+    */
+    void Append(ListElement<type> *element);   
         
-        /**
-        * Adds a element to the beginning of a list.
-        * @param element A pointer to the element to add.
-        */
-        void Prepend(ListElement<type> *element);
+    /**
+    * Adds a element to the beginning of a list.
+    * @param element A pointer to the element to add.
+    */
+    void Prepend(ListElement<type> *element);
 
-        /**
-        * Removes a element from a list.
-        * @param A pointer to the element to be removed, from the list.
-        */
-        void Remove(ListElement<type> *element);
+    /**
+    * Removes a element from a list.
+    * @param A pointer to the element to be removed, from the list.
+    */
+    void Remove(ListElement<type> *element);
 
-        /**
-        * Removes all elements from a list, but does not delete them.
-        */
-        void RemoveAll();
+    /**
+    * Removes all elements from a list, but does not delete them.
+    */
+    void RemoveAll();
 
-        /**
-        * Deletes all the elements in a list.
-        */
-        void DeleteAll();
-    };
+    /**
+    * Deletes all the elements in a list.
+    */
+    void DeleteAll();
+};
 }
 #endif
