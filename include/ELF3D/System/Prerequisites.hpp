@@ -22,8 +22,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef _PHYSICS_H_
-#define _PHYSICS_H_
+#ifndef _PREREQUISITES_H_
+#define _PREREQUISITES_H_
 
+#include "BuildSettings.hpp"
 
+namespace elf
+{
+    #if DOUBLE_PRECISION == 1
+        typedef double Real;
+    #else
+        typedef float Real;
+    #endif
+
+#if defined PLATFORM_WIN32 && defined MSVC
+#define worked
+#endif
+}
 #endif

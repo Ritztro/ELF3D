@@ -4,17 +4,29 @@
 #*******************************************************************
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/src)
 
-SET(SOURCE 
+SET(UTIL_SOURCE
 	${SRC_ROOT}/Utilities/List.cpp
 	${INC_ROOT}/Utilities/List.hpp
 	${SRC_ROOT}/Utilities/ListElement.cpp
 	${INC_ROOT}/Utilities/ListElement.hpp
-	${INC_ROOT}/Utilities/BuildSettings.hpp
 )
 
-ADD_LIBRARY(ELF3D ${SOURCE})
+SET(SYS_SOURCE 
+	${INC_ROOT}/System/BuildSettings.hpp
+	${INC_ROOT}/System/Prerequisites.hpp
+)
 
-#FILE(GLOB util "${INC_ROOT}/Utilities/*.hpp")
+SET(GRAPH_SOURCE
+)
 
-#INSTALL(TARGETS ELF3D DESTINATION bin)
-#INSTALL(FILES util DESTINATION include/ELF3D/Utilities)
+SET(PHYS_SOURCE
+)
+
+# Creates sub folder for the project, also called filters in Visual Studio
+SOURCE_GROUP("Utilities" FILES ${UTIL_SOURCE})
+SOURCE_GROUP("System" FILES ${SYS_SOURCE})
+SOURCE_GROUP("Graphics" FILES ${GRAPH_SOURCE})
+SOURCE_GROUP("Physics" FILES ${PHYS_SOURCE})
+SOURCE_GROUP("" FILES ${INC_ROOT}/ELF3D.hpp)
+
+ADD_LIBRARY(ELF3D ${UTIL_SOURCE} ${SYS_SOURCE} ${GRAPH_SOURCE} ${PHYS_SOURCE} ${INC_ROOT}/ELF3D.hpp)

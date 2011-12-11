@@ -29,40 +29,40 @@ class List;
 
 namespace elf
 {
-/**
-* The ListElement class template is the object in a List. 
-* It should be declared as a base class for the objects that you want to store in a List.
-* @see List
-*/
-template <class type>
-class ListElement
-{
-public:
-    ListElement();
-    ~ListElement();
-
     /**
-    * Returns parent element of this element from a list.
-    * @return A pointer to a ListElement object.
+    * The ListElement class template is the object in a List. 
+    * It should be declared as a base class for the objects that you want to store in a List.
+    * @see List
     */
-    ListElement *Parent();
+    template <class type>
+    class ListElement
+    {
+    public:
+        ListElement();
+        ~ListElement();
 
-    /**
-    * Returns next element of this element from a list.
-    * @return A pointer to a ListElement object.
-    */
-    ListElement *Next();
+        /**
+        * Returns parent element of this element from a list.
+        * @return A pointer to a ListElement object.
+        */
+        ListElement *Parent();
 
-    /**
-    * Removes an element from any list it belongs to.
-    */
-    void Detach();
+        /**
+        * Returns next element of this element from a list.
+        * @return A pointer to a ListElement object.
+        */
+        ListElement *Next();
 
-    /**
-    * Returns the list which a element belongs to.
-    * @return A pointer to a List object. 
-    */
-    List *GetList();
-};
+        /**
+        * Removes an element from any list it belongs to.
+        */
+        void Detach();
+
+        /**
+        * Returns the list which a element belongs to.
+        * @return A pointer to a List object. 
+        */
+        List *GetList();
+    };
 }
 #endif
