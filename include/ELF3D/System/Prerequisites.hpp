@@ -34,9 +34,5 @@ namespace elf
     #else
         typedef float Real;
     #endif
-
-#if defined PLATFORM_WIN32 && defined MSVC
-#define worked
-#endif
 }
 #endif
