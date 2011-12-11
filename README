@@ -1,3 +1,19 @@
+ELF3D - OpenSource Lightweight 3D Game Engine
+=============================================
+
+ELF3D is an Open Source Game Engine that has a main goal of being an all in Game Engine. ELF3D is not only is a Graphics, Window, Input, Physics, Sound, or Network Manager, it is all of those managers combined into one simple, free, opensource, and lightweight Game Engine.
+
+ELF3D is written in C++ and uses OpenGL for 3D Graphics.
+
+Authors
+--------
+
+Brent Ritzema - Project Leader - (ritztro@gmail.com)
+Emil Sandstø - Lead Developer - (emilalexer@gmail.com)
+
+Liscense
+---------
+
 ELF3D is made available under the MIT License.
 
 Copyright (c) 2011 Ritztro
@@ -19,3 +35,20 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+
+Contributions
+--------------
+
+There are 10 simple steps to contribute.
+
+1. Fork the repo.
+2. Read the Code Design Document: https://docs.google.com/document/d/1oaFiNuD3h069EJIEaeHNPiY2rpIKW7Bj9gzzvesqyjI/edit
+3. Pull your fork of the repo to your local machine.
+4. Add/Edit desired code.
+5. Commit your changes.
+6. Push your changes to your fork of the repo.
+7. Submit a Pull Request.
+8. Add any desired notes your would like to include for the admins in the Pull Request.
+9. Submit the finalized Pull Request.
+10. Wait till an admin accepts/denies/edits your Pull Request.
