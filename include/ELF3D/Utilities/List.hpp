@@ -31,7 +31,8 @@ namespace elf
 {
     /**
     * The List class template is a container used to store doubly linked list of elements. 
-    * The class type of the element that are to be stored in the List, must be a subclass of ListElement using the same template parameter.
+    * The class type of the element that are to be stored in the List, 
+    * must be a subclass of ListElement using the same template parameter.
     * @see ListElement
     */
     template <class type>
