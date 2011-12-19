@@ -1,7 +1,7 @@
 ELF3D - OpenSource Lightweight 3D Game Engine
 =============================================
 
-ELF3D is an Open Source Game Engine that has a main goal of being an all in Game Engine. ELF3D is not only is a Graphics, Window, Input, Physics, Sound, or Network Manager, it is all of those managers combined into one simple, free, opensource, and lightweight Game Engine.
+ELF3D is an Open Source Game Engine that has a main goal of being an all in Game Engine. ELF3D is not only is a Graphics, Window, Input, Physics, Sound, or Network System, it is all of those components combined into one simple, free, opensource, and lightweight Game Engine. To accomplish these goals we like to follow the KISS(http://en.wikipedia.org/wiki/KISS_principle) and YAGNI(http://en.wikipedia.org/wiki/You_ain%27t_gonna_need_it) principles.
 
 ELF3D is written in C++ and uses OpenGL for 3D Graphics.
 
