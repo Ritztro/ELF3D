@@ -25,7 +25,7 @@ THE SOFTWARE.
 #ifndef _OPENGL_H_
 #define _OPENGL_H_
 
-#include <ELF3D/System/Prerequisites.hpp>
+#include "ELF3D/System/Prerequisites.hpp"
 
 #if PLATFORM == PLATFORM_WIN
     #include <GL/gl.h>

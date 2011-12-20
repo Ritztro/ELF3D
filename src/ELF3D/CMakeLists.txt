@@ -9,6 +9,10 @@ SET(UTIL_SOURCE
 	${INC_ROOT}/Utilities/List.hpp
 	${SRC_ROOT}/Utilities/ListElement.cpp
 	${INC_ROOT}/Utilities/ListElement.hpp
+	${SRC_ROOT}/Utilities/File.cpp
+	${INC_ROOT}/Utilities/File.hpp
+	${SRC_ROOT}/Utilities/String.cpp
+	${INC_ROOT}/Utilities/String.hpp
 )
 
 SET(SYS_SOURCE 
