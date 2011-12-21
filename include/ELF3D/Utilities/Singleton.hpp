@@ -22,35 +22,51 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef _PREREQUISITES_H_
-#define _PREREQUISITES_H_
+#ifndef _SINGLETON_H_
+#define _SINGLETON_H_
 
-#include "BuildSettings.hpp"
-
-#include <stdio.h>
-#include <iostream>
-#include <fstream>
-#include <stdarg.h>
-#include <assert.h>
+#include "ELF3D/System/Prerequisites.hpp"
 
 namespace elf
 {
-	#define SAFE_DELETE(p) if(p) {delete p;p = 0;}
+    /**
+    * Singleton class template is used to convert classes to a class singleton.
+    * It is used like, class Foo : Singleton<Foo>
+    * This class is based on Scott Bilas class, found here: http://scottbilas.com/publications/gem-singleton/
+    */
+    template<class type>
+    class Singleton
+    {
+    public:
+        Singleton()
+        {
+            assert(!m_instance);
+            m_instance = static_cast<type*>(this);
+        }
+        
+        ~Singleton()
+        {
+            assert(m_instance); 
+            m_instance = 0;
+        }
 
-    #define SAFE_DELETE_ARRAY(p) if(p) {delete []p;p = 0;}
-	
-    #if DOUBLE_PRECISION == 1
-        typedef double Real;
-    #else
-        typedef float Real;
-    #endif
+        static type &GetInstance()
+        {
+            assert(m_instance);
+            return *m_instance;
+        }
 
-    typedef unsigned int uint32;
-    typedef unsigned short uint16;
-    typedef unsigned char uint8;
-    typedef int int32;
-    typedef short int16;
-    typedef char int8;
+        static type *GetPtrInstance()
+        {
+            return m_instance;
+        }
+    protected:
+        static type *m_instance;
+    private:
+        //Make it is impossible to copy this class.
+        Singleton(Singleton<type> &);
+        Singleton &operator=(const Singleton<type> &);
+    };
 }
 
 #endif

@@ -27,11 +27,10 @@ THE SOFTWARE.
 
 #include "ELF3D/System/Prerequisites.hpp"
 #include "ELF3D/Utilities/String.hpp"
-#include <fstream>
 
 namespace elf
 {
-    enum FILE_POS {BEG, CUR, END};
+    enum FilePos {BEG, CUR, END};
 
     /**
     * The file class is used to read and write data or text to a file.
@@ -73,7 +72,7 @@ namespace elf
         * @param offset How much to move.
         * @return False if error. Check Error singleton for more information.
         */
-        bool SetPos(FILE_POS &startFrom, uint32 offset); 
+        bool SetPos(FilePos startFrom, uint32 offset); 
 
         /**
         * Read from current position.
@@ -99,11 +98,11 @@ namespace elf
         bool ReadLine(String &output);
 
         /**
-        * Write text to current position.
+        * Write a line to current position.
         * @param input Text to be written.
         * @return False if error. Check Error singleton for more information.
         */
-        bool WriteText(String &input);
+        bool WriteLine(String &input);
 
         /**
         * @return False if loading went wrong.

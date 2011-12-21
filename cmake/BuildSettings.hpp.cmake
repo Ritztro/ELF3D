@@ -42,7 +42,6 @@ namespace elf
 	#define VERSION_MINOR @ELF3D_VERSION_MINOR@
 
 	//Platforms
-	#cmakedefine WIN32
 	#ifdef WIN32
 		#define PLATFORM PLATFORM_WIN
 	#endif

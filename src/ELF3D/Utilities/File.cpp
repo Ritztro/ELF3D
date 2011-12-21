@@ -1,5 +1,5 @@
 #include "ELF3D/Utilities/File.hpp"
-#include <iostream>
+#include "ELF3D/Utilities/Error.hpp"
 
 namespace elf
 {
@@ -29,7 +29,7 @@ namespace elf
             m_file.open(m_fileName.ConstStr(), std::fstream::in | std::fstream::out | std::fstream::binary);
             
             m_file.seekg(0, std::ios::end);
-            m_sizeOfFile = m_file.tellg();
+            m_sizeOfFile = (uint32)m_file.tellg();
             m_file.seekg(0, std::ios::beg);
         }
         catch(std::ifstream::failure e)
@@ -46,7 +46,7 @@ namespace elf
         m_file.close();
     }
 
-    bool File::SetPos(FILE_POS &startFrom, uint32 offset)
+    bool File::SetPos(FilePos startFrom, uint32 offset)
     {
         try
         {
@@ -109,7 +109,7 @@ namespace elf
     {
         try
         {   
-            uint32 sizeOfBuffer = m_sizeOfFile - m_file.tellg();
+            uint32 sizeOfBuffer = m_sizeOfFile - (uint32)m_file.tellg();
             
             //Create a big enough buffer.
             char *buffer = new char[sizeOfBuffer];
@@ -125,11 +125,12 @@ namespace elf
         return true;
     }
 
-    bool File::WriteText(String &input)
+    bool File::WriteLine(String &input)
     {
         try
         {
             m_file.write(input.ConstStr(), input.Size());
+            m_file.put('\n');
         }
         catch(std::ifstream::failure e)
         {

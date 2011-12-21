@@ -22,35 +22,36 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef _PREREQUISITES_H_
-#define _PREREQUISITES_H_
+#ifndef _ERROR_H_
+#define _ERROR_H_
 
-#include "BuildSettings.hpp"
-
-#include <stdio.h>
-#include <iostream>
-#include <fstream>
-#include <stdarg.h>
-#include <assert.h>
+#include "ELF3D/Utilities/String.hpp"
+#include "ELF3D/Utilities/Singleton.hpp"
 
 namespace elf
 {
-	#define SAFE_DELETE(p) if(p) {delete p;p = 0;}
+    enum OutputTypes
+    {
+        IOSTREAM,
+        FILE
+    };
 
-    #define SAFE_DELETE_ARRAY(p) if(p) {delete []p;p = 0;}
-	
-    #if DOUBLE_PRECISION == 1
-        typedef double Real;
-    #else
-        typedef float Real;
-    #endif
+    /**
+    * Error class singleton handles errors. The errors are being stored in a file, default error.log.
+    */
+    class Error : public Singleton<Error>
+    {
+    public:
+        Error();
 
-    typedef unsigned int uint32;
-    typedef unsigned short uint16;
-    typedef unsigned char uint8;
-    typedef int int32;
-    typedef short int16;
-    typedef char int8;
+        void SetOutput(OutputTypes type, ...);
+        void Occur(const char *format, ...);
+    private:
+        OutputTypes m_type;///< Type of output.
+        String m_fileName;///< If the ouput type is file, this would be the name of the file.
+    };
+    
+    #define error Error::GetInstance()
 }
 
 #endif
