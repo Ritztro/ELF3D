@@ -93,6 +93,21 @@ namespace elf
         void Remove(const String &string);
 
         /**
+        * Set size of string.
+        */
+        void SetSize(uint32 size);
+
+        /**
+        * @return String as a constant pointer. Pointer data can not be edited.
+        */
+        const char *ConstStr();
+
+        /**
+        * @return String as a pointer. Pointer data can be edited.
+        */
+        char *Str();
+
+        /**
         * @return Number of characters, in other words size of string.
         */
         uint32 Size();

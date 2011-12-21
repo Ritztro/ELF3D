@@ -25,14 +25,16 @@ THE SOFTWARE.
 #ifndef _FILE_H_
 #define _FILE_H_
 
+#include "ELF3D/System/Prerequisites.hpp"
 #include "ELF3D/Utilities/String.hpp"
+#include <fstream>
 
 namespace elf
 {
-    enum FILE_POS {BEGIN, CURRENT, END};
+    enum FILE_POS {BEG, CUR, END};
 
     /**
-    * The file class is used to read and write to a file.
+    * The file class is used to read and write data or text to a file.
     */
     class File
     {
@@ -56,8 +58,9 @@ namespace elf
         /**
         * Loads a file.
         * @param fileName Name of file.
+        * @return False if error. Check Error singleton for more information.
         */
-        void Load(const String &fileName) throw(int);
+        bool Load(const String &fileName);
 
         /**
         * Close the file from reading and writing.
@@ -65,44 +68,52 @@ namespace elf
         void Close();
 
         /**
-        * Sets the current position in file by 
+        * Sets the current position in file.
+        * @param startFrom Where to start from.
+        * @param offset How much to move.
+        * @return False if error. Check Error singleton for more information.
         */
-        void SetPos(FILE_POS &startFrom, uint32 offset) throw(int); 
+        bool SetPos(FILE_POS &startFrom, uint32 offset); 
 
         /**
         * Read from current position.
         * @param output Where to put read data.
         * @param sizeOfOutput How much to read. The file pointer would move along.
+        * @return False if error. Check Error singleton for more information.
         */
-        void Read(void **output, uint32 sizeOfOutput) throw(int);
+        bool Read(void *output, uint32 sizeOfOutput);
 
         /**
         * Write to current position in file.
         * @param input Data to be written.
         * @param sizeOfInput Size of data to be written.
+        * @return False if error. Check Error singleton for more information.
         */
-        void Write(void *input, uint32 sizeOfInput) throw(int);
+        bool Write(void *input, uint32 sizeOfInput);
 
         /**
-        * Read text from current position.
-        * @param output Where to put read text.
-        * @param sizeOfOutput How much to read. NOTE: The file pointer would move along.
+        * Read line from current position, until end of file or new line occurs.
+        * @param output Where to put read line.
+        * @return False if error. Check Error singleton for more information.
         */
-        void ReadText(String &output, uint32 sizeOfOutput);
+        bool ReadLine(String &output);
 
         /**
         * Write text to current position.
         * @param input Text to be written.
+        * @return False if error. Check Error singleton for more information.
         */
-        void WriteText(String &input);
+        bool WriteText(String &input);
 
         /**
-        * @return False if last loading went wrong.
+        * @return False if loading went wrong.
         */
         bool IsLoaded();
     private:
         bool m_bLoaded;///< True if loading went fine.
-        uint32 m_posInFile;///< Position in file.
+        uint32 m_sizeOfFile;///< Size of file.
+        std::fstream m_file;///< File handler.
+        String m_fileName;///< Name of file.
     };
 }
 
