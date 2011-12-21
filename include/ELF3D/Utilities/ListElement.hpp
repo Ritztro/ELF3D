@@ -22,15 +22,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef _LIST_ELEMENT_H_
-#define _LIST_ELEMENT_H_
+#ifndef ELF_LIST_ELEMENT_H_
+#define ELF_LIST_ELEMENT_H_
 
 class List;
 
 namespace elf
 {
     /**
-    * The ListElement class template is the object in a List. 
+    * The ListElement class template is the object in a List.
     * It should be declared as a base class for the objects that you want to store in a List.
     * @see List
     */
@@ -60,7 +60,7 @@ namespace elf
 
         /**
         * Returns the list which a element belongs to.
-        * @return A pointer to a List object. 
+        * @return A pointer to a List object.
         */
         List *GetList();
     };

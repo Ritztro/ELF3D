@@ -22,11 +22,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef _FILE_H_
-#define _FILE_H_
+#ifndef ELF_FILE_H_
+#define ELF_FILE_H_
 
-#include "ELF3D/System/Prerequisites.hpp"
-#include "ELF3D/Utilities/String.hpp"
+#include <ELF3D/System/Prerequisites.hpp>
+#include <ELF3D/Utilities/String.hpp>
 
 namespace elf
 {
@@ -72,7 +72,7 @@ namespace elf
         * @param offset How much to move.
         * @return False if error. Check Error singleton for more information.
         */
-        bool SetPos(FilePos startFrom, uint32 offset); 
+        bool SetPos(FilePos startFrom, uint32 offset);
 
         /**
         * Read from current position.

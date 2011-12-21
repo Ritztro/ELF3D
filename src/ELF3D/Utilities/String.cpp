@@ -1,4 +1,4 @@
-#include "ELF3D/Utilities/String.hpp"
+#include <ELF3D/Utilities/String.hpp>
 
 namespace elf
 {
@@ -10,7 +10,7 @@ namespace elf
         m_string = 0;
         m_size = 0;
     }
-        
+
     /**
     * Destructor.
     */
@@ -28,7 +28,7 @@ namespace elf
     String::String(const String &string)
     {
     }
-        
+
     /**
     * Copy constructor.
     */

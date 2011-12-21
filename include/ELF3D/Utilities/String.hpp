@@ -22,10 +22,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef _STRING_H_
-#define _STRING_H_
+#ifndef ELF_STRING_H_
+#define ELF_STRING_H_
 
-#include "ELF3D/System/Prerequisites.hpp"
+#include <ELF3D/System/Prerequisites.hpp>
 
 namespace elf
 {
@@ -40,7 +40,7 @@ namespace elf
         * Constructor.
         */
         String();
-        
+
         /**
         * Destructor.
         */
@@ -50,7 +50,7 @@ namespace elf
         * Copy constructor.
         */
         String(const String &string);
-        
+
         /**
         * Copy constructor.
         */

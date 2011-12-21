@@ -1,5 +1,5 @@
-#include "ELF3D/Utilities/Error.hpp"
-#include "ELF3D/Utilities/File.hpp"
+#include <ELF3D/Utilities/Error.hpp>
+#include <ELF3D/Utilities/File.hpp>
 
 namespace elf
 {
@@ -37,7 +37,7 @@ namespace elf
 #else
         vsnprintf(buffer.Str(), 256, format, args);
 #endif
-        
+
         //Write to the output specified.
         if(m_type == IOSTREAM)
         {
@@ -49,7 +49,7 @@ namespace elf
             out.Load(m_fileName);
 
             out.WriteLine(buffer);
-            
+
             //NOTE we don't need to close the file
             //because it is done automatically in
             //the destructor.

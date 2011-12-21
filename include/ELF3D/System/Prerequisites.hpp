@@ -22,10 +22,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef _PREREQUISITES_H_
-#define _PREREQUISITES_H_
+#ifndef ELF_PREREQUISITES_H_
+#define ELF_PREREQUISITES_H_
 
-#include "BuildSettings.hpp"
+#include <ELF3D/System/BuildSettings.hpp>
 
 #include <stdio.h>
 #include <iostream>
@@ -38,7 +38,7 @@ namespace elf
 	#define SAFE_DELETE(p) if(p) {delete p;p = 0;}
 
     #define SAFE_DELETE_ARRAY(p) if(p) {delete []p;p = 0;}
-	
+
     #if DOUBLE_PRECISION == 1
         typedef double Real;
     #else
