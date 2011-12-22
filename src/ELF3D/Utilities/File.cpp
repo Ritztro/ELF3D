@@ -1,5 +1,5 @@
-#include "ELF3D/Utilities/File.hpp"
-#include "ELF3D/Utilities/Error.hpp"
+#include <ELF3D/Utilities/File.hpp>
+#include <ELF3D/Utilities/Error.hpp>
 
 namespace elf
 {
@@ -8,7 +8,7 @@ namespace elf
         m_bLoaded = false;
         m_sizeOfFile = 0;
     }
-    
+
     File::File(const String &fileName)
     {
         File();
@@ -27,7 +27,7 @@ namespace elf
             m_bLoaded = true;
             m_fileName = fileName;
             m_file.open(m_fileName.ConstStr(), std::fstream::in | std::fstream::out | std::fstream::binary);
-            
+
             m_file.seekg(0, std::ios::end);
             m_sizeOfFile = (uint32)m_file.tellg();
             m_file.seekg(0, std::ios::beg);
@@ -108,9 +108,9 @@ namespace elf
     bool File::ReadLine(String &output)
     {
         try
-        {   
+        {
             uint32 sizeOfBuffer = m_sizeOfFile - (uint32)m_file.tellg();
-            
+
             //Create a big enough buffer.
             char *buffer = new char[sizeOfBuffer];
             m_file.getline(buffer, sizeOfBuffer);

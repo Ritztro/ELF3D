@@ -22,16 +22,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef _LIST_H_
-#define _LIST_H_
+#ifndef ELF_LIST_H_
+#define ELF_LIST_H_
 
-#include "ELF3D/Utilities/ListElement.hpp"
+#include <ELF3D/Utilities/ListElement.hpp>
 
-namespace elf 
+namespace elf
 {
     /**
-    * The List class template is a container used to store doubly linked list of elements. 
-    * The class type of the element that are to be stored in the List, 
+    * The List class template is a container used to store doubly linked list of elements.
+    * The class type of the element that are to be stored in the List,
     * must be a subclass of ListElement using the same template parameter.
     * @see ListElement
     */
@@ -48,7 +48,7 @@ namespace elf
         * @param elementAfter A pointer to the element to insert after.
         */
         void InsertAfter(ListElement<type> *element, ListElement<type> *elementAfter);
-        
+
         /**
         * Inserts a element before antother element.
         * @param element A pointer to the element to insert.
@@ -60,8 +60,8 @@ namespace elf
         * Adds a element to the end of a list.
         * @param element A pointer to the element to add.
         */
-        void Append(ListElement<type> *element);   
-        
+        void Append(ListElement<type> *element);
+
         /**
         * Adds a element to the beginning of a list.
         * @param element A pointer to the element to add.

@@ -22,10 +22,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef _OPENGL_H_
-#define _OPENGL_H_
+#ifndef ELF_OPENGL_H_
+#define ELF_OPENGL_H_
 
-#include "ELF3D/System/Prerequisites.hpp"
+#include <ELF3D/System/Prerequisites.hpp>
 
 #if PLATFORM == PLATFORM_WIN
     #include <GL/gl.h>

@@ -22,9 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef _ELF3D_H_
-#define _ELF3D_H_
+#ifndef ELF_ELF3D_H_
+#define ELF_ELF3D_H_
 
-#include "System/Prerequisites.h"
+#include <ELF3D/System/Prerequisites.h>
 
 #endif
