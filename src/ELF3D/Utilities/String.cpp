@@ -81,10 +81,10 @@ namespace elf
 
     void String::operator +=(const char c)
     {
-    }
+    }/*
     void String::operator +=(const char *string);
     void String::operator +=(const String &string);
 
     void String::operator =(const char *string);
-    void String::operator =(const String &string);
+    void String::operator =(const String &string);*/
 }
