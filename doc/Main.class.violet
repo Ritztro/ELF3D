@@ -221,8 +221,8 @@
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>916.0</double> 
-     <double>495.0</double> 
+     <double>924.0</double> 
+     <double>510.0</double> 
     </void> 
    </object> 
   </void> 
@@ -272,8 +272,8 @@
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>912.0</double> 
-     <double>605.0</double> 
+     <double>920.0</double> 
+     <double>620.0</double> 
     </void> 
    </object> 
   </void> 
@@ -287,8 +287,8 @@
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>1091.0</double> 
-     <double>605.0</double> 
+     <double>1099.0</double> 
+     <double>620.0</double> 
     </void> 
    </object> 
   </void> 
