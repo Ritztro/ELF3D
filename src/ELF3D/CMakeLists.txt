@@ -21,6 +21,8 @@ SET(UTIL_SOURCE
 SET(SYS_SOURCE 
 	${INC_ROOT}/System/BuildSettings.hpp
 	${INC_ROOT}/System/Prerequisites.hpp
+	${SRC_ROOT}/System/FileMgr.cpp
+	${INC_ROOT}/System/FileMgr.hpp
 )
 
 SET(GRAPH_SOURCE
