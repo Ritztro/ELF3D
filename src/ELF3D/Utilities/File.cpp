@@ -145,4 +145,14 @@ namespace elf
     {
         return m_bLoaded;
     }
+
+    String &File::GetName()
+    {
+        return m_fileName;
+    }
+
+    uint32 File::GetSize()
+    {
+        return m_sizeOfFile;
+    }
 }

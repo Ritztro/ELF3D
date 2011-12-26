@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef _CMAKE_DEF_H_
-#define _CMAKE_DEF_H_
+#ifndef ELF_CMAKE_DEF_H_
+#define ELF_CMAKE_DEF_H_
 
 namespace elf
 {

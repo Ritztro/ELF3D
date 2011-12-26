@@ -108,6 +108,16 @@ namespace elf
         * @return False if loading went wrong.
         */
         bool IsLoaded();
+
+        /**
+        * @return Name of file.
+        */
+        String &GetName();
+
+        /**
+        * @return Size of file.
+        */
+        uint32 GetSize();
     private:
         bool m_bLoaded;///< True if loading went fine.
         uint32 m_sizeOfFile;///< Size of file.
