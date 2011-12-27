@@ -26,7 +26,6 @@ THE SOFTWARE.
 #define ELF_ARRAY_HPP_
 
 #include <ELF3D/System/Prerequisites.hpp>
-#include <ELF3D/Utilities/ArrayElement.hpp>
 
 namespace elf
 {
@@ -46,7 +45,7 @@ namespace elf
         * Push new data to end of array.
         * @param a Data to push back.
         */
-        void PushBack(type a);
+        void PushBack(type *a);
 
         void Resize(uint32 size);
 
@@ -54,9 +53,9 @@ namespace elf
 
         void IncSize();//Increment size
 
-        type &operator []()
+        type &operator [](int index);
     private:
-    }
+    };
 }
 
 #endif
