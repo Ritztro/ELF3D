@@ -19,8 +19,6 @@ namespace elf
     File::~File()
     {
         Close();
-
-        fileMgr.RemoveFile(this);
     }
 
     bool File::Load(const String &fileName)
@@ -49,6 +47,7 @@ namespace elf
     void File::Close()
     {
         m_file.close();
+        fileMgr.RemoveFile(this);
     }
 
     bool File::SetPos(FilePos startFrom, uint32 offset)
