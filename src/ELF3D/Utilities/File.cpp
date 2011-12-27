@@ -1,5 +1,6 @@
 #include <ELF3D/Utilities/File.hpp>
 #include <ELF3D/Utilities/Error.hpp>
+#include <ELF3D/System/FileMgr.hpp>
 
 namespace elf
 {
@@ -18,6 +19,8 @@ namespace elf
     File::~File()
     {
         Close();
+
+        fileMgr.RemoveFile(this);
     }
 
     bool File::Load(const String &fileName)
@@ -31,6 +34,8 @@ namespace elf
             m_file.seekg(0, std::ios::end);
             m_sizeOfFile = (uint32)m_file.tellg();
             m_file.seekg(0, std::ios::beg);
+
+            fileMgr.AddFile(this);
         }
         catch(std::ifstream::failure e)
         {
