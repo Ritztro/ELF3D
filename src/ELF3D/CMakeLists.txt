@@ -16,6 +16,7 @@ SET(UTIL_SOURCE
 	${SRC_ROOT}/Utilities/Error.cpp
 	${INC_ROOT}/Utilities/Error.hpp
 	${INC_ROOT}/Utilities/Singleton.hpp
+	${INC_ROOT}/Utilities/Array.hpp
 )
 
 SET(SYS_SOURCE 
