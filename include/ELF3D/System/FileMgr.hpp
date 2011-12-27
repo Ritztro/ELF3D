@@ -22,39 +22,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef ELF_ARRAY_HPP_
-#define ELF_ARRAY_HPP_
+#ifndef ELF_FILEMGR_H_
+#define ELF_FILEMGR_H_
 
 #include <ELF3D/System/Prerequisites.hpp>
+#include <ELF3D/Utilities/File.hpp>
+#include <ELF3D/Utilities/Array.hpp>
 
 namespace elf
 {
-    /**
-    * The Array class is a dynamic data storage container.
-    * You can add and remove data from Array without having
-    * to worry about size limitations.
-    */
-    template <class type>
-    class Array
+    class FileMgr
     {
     public:
-        Array();
-        ~Array();
-
-        /**
-        * Push new data to end of array.
-        * @param a Data to push back.
-        */
-        void PushBack(type *a);
-
-        void Resize(uint32 size);
-
-        void Reserve(uint32 reserveSpace);
-
-        void IncSize();//Increment size
-
-        type &operator [](int index);
+        FileMgr();
+        ~FileMgr();
+        void AddFile(File *file);
     private:
+        Array<File> m_files;
     };
 }
 

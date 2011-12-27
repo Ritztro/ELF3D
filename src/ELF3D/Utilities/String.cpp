@@ -48,43 +48,73 @@ namespace elf
     * Append a sequence of characters.
     * @param string Character sequence to be append.
     */
-    void String::Append(const char *string);
+    void String::Append(const char *string)
+    {
+
+    }
 
     /**
     * Append a string.
     * @param string String to be append.
     */
-    void String::Append(const String &string);
+    void String::Append(const String &string)
+    {
+
+    }
 
     /**
     * Remove all occurrence of this char from the string.
     * @param c Character to be removed.
     */
-    void String::Remove(const char c);
+    void String::Remove(const char c)
+    {
+
+    }
 
     /**
     * Remove all occurrence of a sequence of characters.
     * @param string Character sequence to be removed.
     */
-    void String::Remove(const char *string);
+    void String::Remove(const char *string)
+    {
+
+    }
 
     /**
     * Remove all occurrence of a string.
     * @param string String to be removed.
     */
-    void String::Remove(const String &string);
+    void String::Remove(const String &string)
+    {
+
+    }
 
     /**
     * @return Number of characters, in other words size of string.
     */
-    uint32 String::Size();
+    uint32 String::Size()
+    {
+
+    }
 
     void String::operator +=(const char c)
     {
     }
-    void String::operator +=(const char *string);
-    void String::operator +=(const String &string);
+    void String::operator +=(const char *string)
+    {
 
-    void String::operator =(const char *string);
-    void String::operator =(const String &string);
+    }
+    void String::operator +=(const String &string)
+    {
+
+    }
+
+    void String::operator =(const char *string)
+    {
+
+    }
+    void String::operator =(const String &string)
+    {
+
+    }
 }

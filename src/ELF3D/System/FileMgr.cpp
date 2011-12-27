@@ -10,7 +10,7 @@ namespace elf
     {
     }
 
-    FileMgr::AddFile(File *file)
+    void FileMgr::AddFile(File *file)
     {
         m_files.PushBack(file);
     }
