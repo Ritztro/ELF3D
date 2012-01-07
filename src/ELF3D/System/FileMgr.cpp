@@ -17,9 +17,9 @@ namespace elf
         m_files.PushBack(file);
     }
 
-    void FileMgr::RemoveFile(File *file)
+    void FileMgr::RemoveFile(uint32 fileID)
     {
-        m_files.Remove(file);
+        m_files.Remove(fileID);
     }
 
     File *FileMgr::GetFile(uint32 fileID)
@@ -31,12 +31,25 @@ namespace elf
     {
         for(File **iter = m_files.Start(); iter != m_files.End();iter++)
         {
-            if((*iter)->GetName() == fileName)
+            if((*iter)->GetName() == fileName) //Check if **iter (derefenced pointer's pointer) file name matches
             {
-                return (*iter);
+                return (*iter); //Return pointer to file
             }
         }
 
         return 0;
+    }
+
+    uint32 FileMgr::GetFileID(File *file)
+    {
+        int count = 0;
+        for(File **iter = m_files.Start(); iter != m_files.End(); iter++)
+        {
+            if(*iter == file)
+            {
+                return count;
+            }
+            count++;
+        }
     }
 }

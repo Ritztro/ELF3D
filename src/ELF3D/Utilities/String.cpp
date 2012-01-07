@@ -117,4 +117,9 @@ namespace elf
     {
 
     }
+
+    bool String::operator ==(const String &string)
+    {
+
+    }
 }

@@ -118,6 +118,8 @@ namespace elf
 
         void operator =(const char *string);
         void operator =(const String &string);
+
+        bool operator ==(const String &string);
     private:
         int8 *m_string;
         uint32 m_size;

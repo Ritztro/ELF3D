@@ -32,7 +32,7 @@ THE SOFTWARE.
 namespace elf
 {
     /**
-    * The FileMgr singleton class is a manager for files. 
+    * The FileMgr singleton class is a manager for files.
     * You can access every OPEN file from here, by file ID or name.
     */
     class FileMgr : public Singleton<FileMgr>
@@ -51,8 +51,8 @@ namespace elf
         * Remove file from container.
         * @param file Pointer to file, to be removed.
         */
-        void RemoveFile(File *file);
-        
+        void RemoveFile(uint32 fileID);
+
         /**
         * @param fileName Is the name of file to be returned.
         * @return Pointer to a File class.
@@ -63,7 +63,13 @@ namespace elf
         * @param fileID Is the index into the container of File pointers.
         * @return Pointer to a File class.
         */
-        File *GetFile(uin32 fileID);
+        File *GetFile(uint32 fileID);
+
+        /**
+        * @param file Pointer to file that you would like to get the ID for.
+        * @return Array ID of file.
+        */
+        uint32 GetFileID(File *file);
     private:
         Array<File*> m_files;
     };

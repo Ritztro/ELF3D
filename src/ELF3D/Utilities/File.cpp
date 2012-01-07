@@ -47,7 +47,8 @@ namespace elf
     void File::Close()
     {
         m_file.close();
-        fileMgr.RemoveFile(this);
+        uint32 ID = fileMgr.GetFileID(this);
+        fileMgr.RemoveFile(ID);
     }
 
     bool File::SetPos(FilePos startFrom, uint32 offset)
