@@ -25,7 +25,7 @@ THE SOFTWARE.
 #ifndef _SINGLETON_H_
 #define _SINGLETON_H_
 
-#include "ELF3D/System/Prerequisites.hpp"
+#include <ELF3D/System/Prerequisites.hpp>
 
 namespace elf
 {
@@ -43,10 +43,10 @@ namespace elf
             assert(!m_instance);
             m_instance = static_cast<type*>(this);
         }
-        
+
         ~Singleton()
         {
-            assert(m_instance); 
+            assert(m_instance);
             m_instance = 0;
         }
 
@@ -67,6 +67,9 @@ namespace elf
         Singleton(Singleton<type> &);
         Singleton &operator=(const Singleton<type> &);
     };
+
+    template <class type>
+    type *Singleton<type>::m_instance = 0;
 }
 
 #endif

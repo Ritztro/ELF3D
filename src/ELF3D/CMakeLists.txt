@@ -19,7 +19,7 @@ SET(UTIL_SOURCE
 	${INC_ROOT}/Utilities/Array.hpp
 )
 
-SET(SYS_SOURCE 
+SET(SYS_SOURCE
 	${INC_ROOT}/System/BuildSettings.hpp
 	${INC_ROOT}/System/Prerequisites.hpp
 	${SRC_ROOT}/System/FileMgr.cpp

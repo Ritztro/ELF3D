@@ -72,7 +72,7 @@ public:
      * Insert an Element into the array.
      * @param a Data to insert.
      */
-    void Insert(type a, uint32 location);
+    bool Insert(type a, uint32 location);
 
     /**
      * Remove an Element from the array.
@@ -96,7 +96,7 @@ public:
     type *End();
 
 
-    type &operator [](const int id);
+    type &operator [](const uint32 id);
 
 private:
     uint32 m_Size; ///< Current Size of the array.
@@ -173,8 +173,13 @@ void Array<type>::Resize(uint32 size)
 }
 
 template <class type>
-void Array<type>::Insert(type a, uint32 location)
+bool Array<type>::Insert(type a, uint32 location)
 {
+    if(location >= m_Size)
+    {
+        error.Occur("Array: Could not insert element into array, specified location larger than array.");
+        return false;
+    }
     type *half1 = new type[location+1];
     type *half2 = new type[m_Size-location];
 
@@ -209,11 +214,19 @@ void Array<type>::Insert(type a, uint32 location)
 
     SAFE_DELETE_ARRAY(half1);
     SAFE_DELETE_ARRAY(half2);
+
+    return true;
+
+
 }
 
 template <class type>
-type &Array<type>::operator [](const int id)
+type &Array<type>::operator [](const uint32 id)
 {
+    if(id >= m_Size)
+    {
+        error.Occur("Array: Error can't return requested element. Array doesn't contain that element!");
+    }
     return m_Array[id];
 }
 
