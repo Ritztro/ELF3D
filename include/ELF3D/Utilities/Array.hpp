@@ -60,7 +60,7 @@ public:
      * Push new data to end of array.
      * @param a Data to push back.
      */
-    void PushBack(type a);
+    void PushBack(const type &a);
 
     /**
      * Changes the pre-allocated size.
@@ -72,7 +72,7 @@ public:
      * Insert an Element into the array.
      * @param a Data to insert.
      */
-    bool Insert(type a, uint32 location);
+    bool Insert(const type &a, uint32 location);
 
     /**
      * Remove an Element from the array.
@@ -84,23 +84,21 @@ public:
      * Empties the array of all elements
      */
     void Empty();
-
     /**
     * @return Pointer to data at start of array.
-    */
+   
     type *Start();
 
     /**
     * @return Pointer to data at the end of the array.
-    */
+    
     type *End();
-
+    */
 
     type &operator [](const uint32 id);
 
 private:
     uint32 m_Size; ///< Current Size of the array.
-    uint32 m_Pos; ///< Current position to push to.
     type *m_Array; ///< Pointer to the array in memory.
 };
 
@@ -108,116 +106,84 @@ private:
 template <class type>
 Array<type>::Array()
 {
-    m_Size = 1;
-    m_Pos = 0;
-    m_Array = new type[1];
+    m_Size = 0;
+    m_Array = 0;
 }
 
 template <class type>
 Array<type>::Array(uint32 size)
 {
     m_Size = size;
-    m_Pos = 0;
-    m_Array = new type[size+1];
+    m_Array = new type[size];
 }
 
 template <class type>
 Array<type>::~Array()
-{
-    m_Size = 0;
-    m_Pos = 0;
+
     SAFE_DELETE_ARRAY(m_Array);
 }
 
 template <class type>
-void Array<type>::PushBack(type a)
+void Array<type>::PushBack(const type &a)
 {
-    type *temp = new type[m_Size+1];
+    type *temp = new type[m_Size + 1];
     for(int i = 0; i < m_Size; i++)
     {
         temp[i] = m_Array[i];
     }
-    temp[m_Pos] = a;
-    m_Pos++;
+    temp[m_Size] = a;
 
     SAFE_DELETE_ARRAY(m_Array);
 
-    m_Array = new type[m_Size+1];
-    for(int i = 0; i < m_Size; i++)
-    {
-        m_Array[i] = temp[i];
-    }
-
-    SAFE_DELETE_ARRAY(temp);
+    m_Array = temp;
+    m_Size++;
 }
 
 template <class type>
 void Array<type>::Resize(uint32 size)
 {
-    type *temp = new type[size];
+    m_Size = size;
+    type *temp = new type[m_Size];
     for(int i = 0; i < size; i++)
     {
         temp[i] = m_Array[i];
     }
 
-
     SAFE_DELETE_ARRAY(m_Array);
 
-    m_Array = new type[size];
-    for(int i = 0; i < size; i++)
-    {
-        m_Array[i] = temp[i];
-    }
-
-    SAFE_DELETE_ARRAY(temp);
+    m_Array = temp;
 }
 
 template <class type>
-bool Array<type>::Insert(type a, uint32 location)
+bool Array<type>::Insert(const type &a, uint32 location)
 {
     if(location >= m_Size)
     {
-        error.Occur("Array: Could not insert element into array, specified location larger than array.");
+        error.Occur("Array: Could not insert element into array, because specified location is larger than array.");
         return false;
     }
-    type *half1 = new type[location+1];
-    type *half2 = new type[m_Size-location];
+    
+    m_Size++;
+    type *temp = new type[m_Size];
 
+    int i = 0;
     //Copy first half and add in value.
-    for(int i = 0; i < location; i++)
+    for(;i < location;i++)
     {
-        half1[i] = m_Array[i];
+        temp[i] = m_Array[i];
     }
-    half1[location] = a;
 
-    //Copy second half
-    for(int i = m_Size-(location+1); i < m_Size; i++)
+    temp[location] = a;
+
+    for(;i < m_Size - 1;i++)
     {
-        half2[i-location] = m_Array[i];
+        temp[i + 1] = m_Array[i];
     }
 
     SAFE_DELETE_ARRAY(m_Array);
-
-    m_Array = new type[m_Size+1];
-
-    //Copy both halfs and new value back in.
-    for(int i = 0; i < location+1; i++)
-    {
-        m_Array[i] = half1[i];
-    }
-
-    for(int i = m_Size-location; i < m_Size+1; i++)
-    {
-        half2[i-(location+1)] = m_Array[i];
-    }
-
-
-    SAFE_DELETE_ARRAY(half1);
-    SAFE_DELETE_ARRAY(half2);
+    m_Array = temp;
 
     return true;
-
-
 }
 
 template <class type>
@@ -229,23 +195,19 @@ type &Array<type>::operator [](const uint32 id)
     }
     return m_Array[id];
 }
-
+/*
 template <class type>
 type *Array<type>::Start()
 {
-    type *data;
-    data = &m_Array[0];
-    return data;
+    return &m_Array[0];
 }
 
 template <class type>
 type *Array<type>::End()
 {
-    type *data;
-    data = &m_Array[m_Pos-1];
-    return data;
+    return &m_Array[m_Size - 1];
 }
-
+*/
 } //end of namespace
 
 #endif
