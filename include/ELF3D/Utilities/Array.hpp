@@ -84,16 +84,6 @@ public:
      * Empties the array of all elements
      */
     void Empty();
-    /**
-    * @return Pointer to data at start of array.
-   
-    type *Start();
-
-    /**
-    * @return Pointer to data at the end of the array.
-    
-    type *End();
-    */
 
     type &operator [](const uint32 id);
 
@@ -119,7 +109,7 @@ Array<type>::Array(uint32 size)
 
 template <class type>
 Array<type>::~Array()
-
+{
     SAFE_DELETE_ARRAY(m_Array);
 }
 
@@ -195,19 +185,7 @@ type &Array<type>::operator [](const uint32 id)
     }
     return m_Array[id];
 }
-/*
-template <class type>
-type *Array<type>::Start()
-{
-    return &m_Array[0];
-}
 
-template <class type>
-type *Array<type>::End()
-{
-    return &m_Array[m_Size - 1];
-}
-*/
 } //end of namespace
 
 #endif
